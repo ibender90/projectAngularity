@@ -1,0 +1,42 @@
+<!doctype  html>
+<html ng-app="angularity">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+<div class="container" ng-controller="indexController">
+    <h3>Products</h3>
+    <table class="table table-hover">
+        <tr>
+            <td>Name</td>
+            <td>price</td>
+            <td>show</td>
+            <td>delete</td>
+        </tr>
+        <tbody>
+        <tr ng-repeat="prod in productsList">
+            <td>{{prod.name}}</td>
+            <td>
+            <button class="btn btn-primary" ng-click="changePrice(prod.id, -0.50)">-</button>
+            {{prod.price}}
+            <button class="btn btn-primary" ng-click="changePrice(prod.id, 0.50)">+</button>
+            </td>
+            <td>
+                <button class="btn btn-primary" ng-click="showProduct(prod.id)">View</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" ng-click="deleteProduct(prod.id)">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
